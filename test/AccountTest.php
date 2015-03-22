@@ -44,4 +44,13 @@ class AccountTest extends ProphecyTestCase
 
         $this->repositoryProphecy->withdraw(500)->shouldBeCalled();
     }
+
+    /**
+     * @test
+     */
+    public function printStatementRetrieveTheTransactionsFromRepository()
+    {
+        $this->account->printStatements();
+        $this->repositoryProphecy->getTransactions()->shouldBeCalled();
+    }
 }

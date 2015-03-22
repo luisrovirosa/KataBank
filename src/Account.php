@@ -26,4 +26,9 @@ class Account
     {
         $this->repository->withdraw($amount);
     }
+
+    public function printStatements()
+    {
+        $this->repository->getTransactions();
+    }
 }
