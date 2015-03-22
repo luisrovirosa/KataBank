@@ -21,4 +21,9 @@ class Account
     {
         $this->repository->deposit($amount);
     }
+
+    public function withdraw($amount)
+    {
+        $this->repository->withdraw($amount);
+    }
 }

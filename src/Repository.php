@@ -8,4 +8,8 @@ class Repository
     public function deposit()
     {
     }
+
+    public function withdraw()
+    {
+    }
 }
