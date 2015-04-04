@@ -30,6 +30,6 @@ class TransactionFactory
      */
     public function makeWithdraw($amount)
     {
-        throw new \Exception('Not implemented');
+        return new Transaction(-$amount, $this->date->now());
     }
 }
