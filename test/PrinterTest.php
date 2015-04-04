@@ -46,12 +46,37 @@ class PrinterTest extends ProphecyTestCase
         $date = '01/04/2014';
         $amount = 1000;
         $transactionProphecy = $this->createTransactionProphecy($date, $amount);
-
         $transactions = array($transactionProphecy->reveal());
 
         $this->printer->printTransactions($transactions);
 
         $this->outputProphecy->write("$date | $amount | $amount")->shouldBeCalled();
+    }
+
+    /**
+     * @test
+     */
+    public function prints_more_than_one_transaction_correctly()
+    {
+        $date1 = '01/04/2014';
+        $amount1 = 1000;
+        $transaction1Prophecy = $this->createTransactionProphecy($date1, $amount1);
+        $date2 = '02/04/2014';
+        $amount2 = 400;
+        $transaction2Prophecy = $this->createTransactionProphecy($date2, $amount2);
+        $transactions = array($transaction1Prophecy->reveal(), $transaction2Prophecy->reveal());
+
+        $this->printer->printTransactions($transactions);
+
+        $this->outputProphecy->write("01/04/2014 | 1000 | 1000")->shouldBeCalled();
+        $this->outputProphecy->write("02/04/2014 | 400 | 1400")->shouldBeCalled();
+    }
+
+    /**
+     * @test
+     */
+    public function i_don_t_know_how_to_test_order()
+    {
     }
 
     /**

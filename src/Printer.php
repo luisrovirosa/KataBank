@@ -22,10 +22,18 @@ class Printer
     {
         $this->output->write("DATE | AMOUNT | BALANCE");
         $total = 0;
+        $textToPrint = array();
         /** @var Transaction $transaction */
         foreach ($transactions as $transaction) {
             $total += $transaction->amount();
-            $this->output->write("{$transaction->date()} | {$transaction->amount()} | $total");
+            $textToPrint[] = "{$transaction->date()} | {$transaction->amount()} | $total";
         }
+        $reverseText = array_reverse($textToPrint);
+        array_map(
+            function ($toPrint) {
+                $this->output->write($toPrint);
+            },
+            $reverseText
+        );
     }
 }
