@@ -45,4 +45,13 @@ class RepositoryTest extends ProphecyTestCase
 
         $this->transactionFactoryProphecy->makeWithdraw(100)->shouldBeCalled();
     }
+
+    /**
+     * @test
+     */
+    public function get_transactions_retrieve_an_empty_collection_of_transactions_if_there_is_no_deposit_or_withdraw()
+    {
+        $transactions = $this->repository->getTransactions();
+        $this->assertEquals(array(), $transactions);
+    }
 }

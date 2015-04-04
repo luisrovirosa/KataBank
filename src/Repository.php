@@ -11,9 +11,12 @@ class Repository
      */
     private $transactionFactory;
 
+    private $transactions = array();
+
     function __construct(TransactionFactory $transactionFactory)
     {
         $this->transactionFactory = $transactionFactory;
+        $this->transactions = array();
     }
 
     public function deposit($amount)
@@ -31,5 +34,6 @@ class Repository
      */
     public function getTransactions()
     {
+        return $this->transactions;
     }
 }
