@@ -11,13 +11,24 @@ class Transaction
      */
     private $amount;
 
-    function __construct($amount)
+    /**
+     * @var string
+     */
+    private $date;
+
+    function __construct($amount, $date)
     {
         $this->amount = $amount;
+        $this->date = $date;
     }
 
     public function amount()
     {
         return $this->amount;
+    }
+
+    public function date()
+    {
+        return $this->date;
     }
 }
