@@ -12,6 +12,6 @@ class Date
     {
         $date = new \DateTime();
 
-        return $date->format('Y/m/d');
+        return $date->format('d/m/Y');
     }
 }
