@@ -20,7 +20,7 @@ class Printer
 
     public function printTransactions($transactions)
     {
-        $this->output->write("DATE | AMOUNT | BALANCE");
+        $this->output->printLine("DATE | AMOUNT | BALANCE");
         $total = 0;
         $textToPrint = array();
         /** @var Transaction $transaction */
@@ -31,7 +31,7 @@ class Printer
         $reverseText = array_reverse($textToPrint);
         array_map(
             function ($toPrint) {
-                $this->output->write($toPrint);
+                $this->output->printLine($toPrint);
             },
             $reverseText
         );

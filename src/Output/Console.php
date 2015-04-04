@@ -8,8 +8,8 @@ use KataBank\Output\Output;
 class Console implements Output
 {
 
-    public function write($text)
+    public function printLine($text)
     {
-        echo $text;
+        echo "$text\n";
     }
 }

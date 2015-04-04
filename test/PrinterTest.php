@@ -35,7 +35,7 @@ class PrinterTest extends ProphecyTestCase
 
         $this->printer->printTransactions($transactions);
 
-        $this->outputProphecy->write("DATE | AMOUNT | BALANCE")->shouldBeCalled();
+        $this->outputProphecy->printLine("DATE | AMOUNT | BALANCE")->shouldBeCalled();
     }
 
     /**
@@ -50,7 +50,7 @@ class PrinterTest extends ProphecyTestCase
 
         $this->printer->printTransactions($transactions);
 
-        $this->outputProphecy->write("$date | $amount | $amount")->shouldBeCalled();
+        $this->outputProphecy->printLine("$date | $amount | $amount")->shouldBeCalled();
     }
 
     /**
@@ -68,8 +68,8 @@ class PrinterTest extends ProphecyTestCase
 
         $this->printer->printTransactions($transactions);
 
-        $this->outputProphecy->write("01/04/2014 | 1000 | 1000")->shouldBeCalled();
-        $this->outputProphecy->write("02/04/2014 | 400 | 1400")->shouldBeCalled();
+        $this->outputProphecy->printLine("01/04/2014 | 1000 | 1000")->shouldBeCalled();
+        $this->outputProphecy->printLine("02/04/2014 | 400 | 1400")->shouldBeCalled();
     }
 
     /**
