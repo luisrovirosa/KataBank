@@ -35,7 +35,7 @@ class AccountTest extends ProphecyTestCase
     /**
      * @test
      */
-    public function depositShouldCallThePersistence()
+    public function deposit_should_call_the_persistence()
     {
         $this->account->deposit(1000);
 
@@ -45,7 +45,7 @@ class AccountTest extends ProphecyTestCase
     /**
      * @test
      */
-    public function withdrawShouldCallThePersistence()
+    public function withdraw_should_call_the_persistence()
     {
         $this->account->withdraw(500);
 
@@ -55,7 +55,7 @@ class AccountTest extends ProphecyTestCase
     /**
      * @test
      */
-    public function printStatementRetrieveTheTransactionsFromRepository()
+    public function print_statement_retrieve_the_transactions_from_repository()
     {
         $this->account->printStatements();
         $this->repositoryProphecy->getTransactions()->shouldBeCalled();
