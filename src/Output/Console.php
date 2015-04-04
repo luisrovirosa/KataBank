@@ -1,7 +1,7 @@
 <?php
 
 
-namespace KataBank;
+namespace KataBank\Output;
 
 use KataBank\Output\Output;
 
