@@ -23,6 +23,7 @@ class Repository
 
     public function withdraw($amount)
     {
+        $this->transactionFactory->makeWithdraw($amount);
     }
 
     /**

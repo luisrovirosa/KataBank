@@ -9,4 +9,9 @@ class TransactionFactory
     {
         throw new \Exception('Not implemented');
     }
+
+    public function makeWithdraw($amount)
+    {
+        throw new \Exception('Not implemented');
+    }
 }

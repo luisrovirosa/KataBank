@@ -35,4 +35,14 @@ class RepositoryTest extends ProphecyTestCase
 
         $this->transactionFactoryProphecy->makeDeposit(100)->shouldBeCalled();
     }
+
+    /**
+     * @test
+     */
+    public function withdraw_creates_a_transaction()
+    {
+        $this->repository->withdraw(100);
+
+        $this->transactionFactoryProphecy->makeWithdraw(100)->shouldBeCalled();
+    }
 }
