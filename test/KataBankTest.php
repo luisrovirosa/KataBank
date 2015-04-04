@@ -13,8 +13,9 @@ class KataBankTest extends ProphecyTestCase
     public function acceptanceTest()
     {
         $this->markTestSkipped();
+        $repositoryProphecy = $this->prophesize('KataBank\Repository');
         $consoleProphecy = $this->prophesize('KataBank\Console');
-        $account = new Account($consoleProphecy->reveal());
+        $account = new Account($repositoryProphecy->reveal(), $consoleProphecy->reveal());
         $account->deposit(1000);
         $account->withdraw(100);
         $account->deposit(500);

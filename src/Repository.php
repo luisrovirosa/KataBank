@@ -13,6 +13,9 @@ class Repository
     {
     }
 
+    /**
+     * @return mixed
+     */
     public function getTransactions()
     {
     }

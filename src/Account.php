@@ -10,11 +10,16 @@ class Account
      * @var Repository
      */
     private $repository;
+    /**
+     * @var Printer
+     */
+    private $printer;
 
-    public function __construct(Repository $repository)
+    public function __construct(Repository $repository, Printer $printer)
     {
 
         $this->repository = $repository;
+        $this->printer = $printer;
     }
 
     public function deposit($amount)
@@ -29,6 +34,7 @@ class Account
 
     public function printStatements()
     {
-        $this->repository->getTransactions();
+        $transactions = $this->repository->getTransactions();
+        $this->printer->printTransactions($transactions);
     }
 }
