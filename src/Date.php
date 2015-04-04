@@ -10,6 +10,8 @@ class Date
      */
     public function now()
     {
-        throw new \Exception('Not implemented yet');
+        $date = new \DateTime();
+
+        return $date->format('Y/m/d');
     }
 }
