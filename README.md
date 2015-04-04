@@ -33,3 +33,27 @@ You cannot change anything in the public interface.
 		public void printStatement() {
 		}
 	}
+## My solution
+I have 3 main classes:
+
+	- Account: Public interface
+	- Repository: For persistence
+	- Printer: To print according to the format
+
+I also have other classes:
+
+	- Transaction: Model class to store the amount and the date.
+	- TransactionFactory: To create the Transaction.
+	- Date: To be able to fake the date responses from the system.
+	- Output: Interface with printLine method.
+	- Console: Implementation of the Output interface printing on the console.
+## How to use it
+1.- Install the dependencies using [composer](http://getcomposer.org)
+
+	composer install
+2.- Execute the tests
+
+	phpunit
+3.- View code coverage
+
+	phpunit --coverage-text
