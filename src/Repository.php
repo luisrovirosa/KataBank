@@ -21,7 +21,8 @@ class Repository
 
     public function deposit($amount)
     {
-        $this->transactionFactory->makeDeposit($amount);
+        $transaction = $this->transactionFactory->makeDeposit($amount);
+        $this->transactions[] = $transaction;
     }
 
     public function withdraw($amount)

@@ -9,6 +9,7 @@ use Prophecy\Prophecy\ObjectProphecy;
 
 class RepositoryTest extends ProphecyTestCase
 {
+    const ANY_AMOUNT = 100;
     /**
      * @var Repository
      */
@@ -31,9 +32,9 @@ class RepositoryTest extends ProphecyTestCase
      */
     public function deposit_creates_a_transaction()
     {
-        $this->repository->deposit(100);
+        $this->repository->deposit(self::ANY_AMOUNT);
 
-        $this->transactionFactoryProphecy->makeDeposit(100)->shouldBeCalled();
+        $this->transactionFactoryProphecy->makeDeposit(self::ANY_AMOUNT)->shouldBeCalled();
     }
 
     /**
@@ -41,9 +42,9 @@ class RepositoryTest extends ProphecyTestCase
      */
     public function withdraw_creates_a_transaction()
     {
-        $this->repository->withdraw(100);
+        $this->repository->withdraw(self::ANY_AMOUNT);
 
-        $this->transactionFactoryProphecy->makeWithdraw(100)->shouldBeCalled();
+        $this->transactionFactoryProphecy->makeWithdraw(self::ANY_AMOUNT)->shouldBeCalled();
     }
 
     /**
@@ -53,5 +54,15 @@ class RepositoryTest extends ProphecyTestCase
     {
         $transactions = $this->repository->getTransactions();
         $this->assertEquals(array(), $transactions);
+    }
+
+    /**
+     * @test
+     */
+    public function get_transactions_after_deposit_has_one_transaction()
+    {
+        $this->repository->deposit(self::ANY_AMOUNT);
+        $transactions = $this->repository->getTransactions();
+        $this->assertCount(1, $transactions);
     }
 }
