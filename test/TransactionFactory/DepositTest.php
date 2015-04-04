@@ -1,37 +1,13 @@
 <?php
 
 
-namespace KataBank\Test;
+namespace KataBank\Test\TransactionFactory;
 
-use KataBank\Transaction;
-use KataBank\TransactionFactory;
-use Prophecy\PhpUnit\ProphecyTestCase;
-use Prophecy\Prophecy\ObjectProphecy;
-
-class DepositTest extends ProphecyTestCase
+class DepositTest extends TransactionFactoryTest
 {
-    const ANY_AMOUNT = 100;
-    const TODAY = '2015/04/04';
-    /**
-     * @var Transaction
-     */
-    private $deposit;
-    /**
-     * @var TransactionFactory
-     */
-    private $transactionFactory;
-
-    /**
-     * @var ObjectProphecy
-     */
-    private $dateProphecy;
-
     protected function setUp()
     {
         parent::setUp();
-        $this->dateProphecy = $this->prophesize('KataBank\Date');
-        $this->dateProphecy->now()->willReturn(self::TODAY);
-        $this->transactionFactory = new TransactionFactory($this->dateProphecy->reveal());
         $this->deposit = $this->transactionFactory->makeDeposit(self::ANY_AMOUNT);
     }
 
