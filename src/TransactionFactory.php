@@ -11,7 +11,7 @@ class TransactionFactory
      */
     public function makeDeposit($amount)
     {
-        return new Transaction();
+        return new Transaction($amount);
     }
 
     /**
