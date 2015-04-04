@@ -65,4 +65,14 @@ class RepositoryTest extends ProphecyTestCase
         $transactions = $this->repository->getTransactions();
         $this->assertCount(1, $transactions);
     }
+
+    /**
+     * @test
+     */
+    public function get_transactions_after_withdraw_has_one_transaction()
+    {
+        $this->repository->withdraw(self::ANY_AMOUNT);
+        $transactions = $this->repository->getTransactions();
+        $this->assertCount(1, $transactions);
+    }
 }
